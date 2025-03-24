@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF OCR Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>PDF OCR Application</h1>
+        <p>Drag and drop a PDF file to extract text</p>
+        
+        <div id="drop-area">
+            <form class="upload-form">
+                <input type="file" id="fileElem" accept=".pdf" class="file-input">
+                <label class="button" for="fileElem">Select a PDF file</label>
+                <div class="drop-zone">
+                    <p>...or drag and drop your file here</p>
+                </div>
+            </form>
+        </div>
+        
+        <div id="status" class="hidden">
+            <div class="spinner"></div>
+            <p>Processing... Please wait</p>
+        </div>
+        
+        <div id="result" class="hidden">
+            <h2>Extracted Text</h2>
+            <div class="actions">
+                <button id="copy-btn">Copy Text</button>
+                <button id="download-btn">Download Text</button>
+            </div>
+            <div id="text-content"></div>
+        </div>
+        
+        <div id="error" class="hidden">
+            <p class="error-message"></p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
